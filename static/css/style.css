@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(97, 97, 97);
+    /* background: linear-gradient(40deg, #804bbd, #2b1645); */
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    overflow-y: auto;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+.heading{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    margin: 20px 0;
+    color: white;
+}
+.formInput{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.tableParent{
+    overflow-y: auto;
+}
+
+
+.formInput input,
+.formInput select{
+    height: 40px;
+    margin-bottom: 1cm;
+    border: none;
+    outline: none;
+    width: 250px;
+    border-radius: 7px;
+    font-size: 17px;
+    text-align: center;
+}
+.formInput button{
+    padding: 0 10px;
+    height: 40px;
+    border-radius: 7px;
+    margin-top: 30px;
+    border: none;
+    font-size: 17px;
+    transition: 0.3s;
+    outline: none;
+}
+.formInput button:hover{
+    background-color: rgb(172, 172, 172);
+}
+.formInput select{
+    margin-top: 10px;
+}
+table{
+    margin: 40px 0;
+}
+th{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 18px;
+}
+table th,
+table td{
+    width: 150px;
+    text-align: center;
+    height: 30px;
+    background-color: white;
+    padding: 5px 10px;
+}
+table button{
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+table button:hover{
+    background-color: rgb(172, 172, 172);
+}
