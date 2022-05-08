@@ -19,15 +19,47 @@
                 <input type="text " id="Name " placeholder = "LPG ID" name="LPG ID"  />
                 <select name="Type" id=" Type ">
             <option value="Select " selected>Select</option>
-            <option value="5 kg ">5 kg</option>
-            <option value="9 kg ">9 kg</option>
-            <option value="15 kg ">15 kg</option>
-            <option value="45 kg ">45 kg</option>
-            <option value="90 kg ">90 kg</option>
+            <option value="5 kg ">5kg</option>
+            <option value="9 kg ">9kg</option>
+            <option value="15 kg ">15kg</option>
+            <option value="45 kg ">45kg</option>
+            <option value="90 kg ">90kg</option>
           </select>
                 <button type="submit "> BOOk </button>
             </div>
         </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>LPG ID</th>
+                    <th>Size</th>
+                    <!-- <th>Vehicle Exit Time</th> -->
+                    <!-- <th>Departed</th> -->
+                    <th>Amount</th>
+                    <th>Acknowledgement</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, phone, lpgid, type, amount in myresult %} 
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{lpgid}}</td>
+                    <td>{{type}}</td>
+                    <!-- <td>{{vechile_exit}}</td> -->
+                    <!-- <td><button type="submit ">Departure</button></td> -->
+                    <td>{{amount}}</td>
+                    <td>
+                        <button type="submit ">
+                <a href="/acknowledgement/{{lpgid}}"> Print</a>
+              </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
       
     </div>

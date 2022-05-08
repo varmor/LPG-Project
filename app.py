@@ -19,21 +19,36 @@ def index():
         phone = request.form["Phone"]
         lpgid = request.form["LPG ID"]
         type = request.form["Type"]
+        print(type)
+        # ONKAR IT's FOR YOU
+        if type == "5kg":
+            amount = 200
+        elif type == "9kg":
+            amount = 650
+        elif type == "15kg":
+            amount = 800
+        elif type == "45kg":
+            amount = 1500
+        else:
+            amount= 5000
         print(name, phone, lpgid, type)
-        # mycursor = db.cursor()
-        # mycursor.execute("INSERT INTO lpg (name, phone, lpgid, type) VALUES (%s, %s, %s, %s)", (name, phone, lpgid, type))
-        # db.commit()
-        # myresult = [name, phone, lpgid, type]
-        return render_template('acknowledgement.html', name=name, phone=phone, lpgid=lpgid, type=type)
-  
+        mycursor = db.cursor()
+        mycursor.execute("INSERT INTO lpg (name, phone, lpgid, type, amount) VALUES (%s, %s, %s, %s, %s)", (name, phone, lpgid, type, amount))
+        db.commit()
+        mycursor = db.cursor()
+        mycursor.execute("SELECT name, phone, lpgid, type, amount FROM lpg")
+        myresult = mycursor.fetchall()
+        return render_template('index.html', myresult=myresult)
+
     return render_template("index.html" )
 
-# @app.route("/acknowledgement/<int:lpgid>")
-# def delete(lpgid):  
-#     mycursor = db.cursor()
-#     mycursor.execute("SELECT * FROM lpg WHERE lpgid = %s ", (lpgid,))
-#     myresult = mycursor.fetchall()
-#     return render_template('acknowledgement.html', myresult=myresult)
+@app.route("/acknowledgement/<int:lpgid>")
+def delete(lpgid):  
+    mycursor = db.cursor()
+    mycursor.execute("SELECT * FROM lpg WHERE lpgid = %s ", (lpgid,))
+    myresult = mycursor.fetchall()
+    return render_template('acknowledgement.html', myresult=myresult)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
